@@ -7,7 +7,7 @@ const router = require("express").Router();
 router.post('/login', async (req, res) => {
   const {username, password} = req.body
   if(!username || !password) {
-    return res.status(401).send('Username or password not present')
+    return res.status(401).send('Username or password is empty')
   }
   const user = await Users.findOne({ where: { username, password } })
   if(!user) {
